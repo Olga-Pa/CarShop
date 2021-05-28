@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Shop.Data;
 using Shop.Data.interfaces;
 using Shop.Data.mocks;
+using Shop.Data.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,10 +30,10 @@ namespace Shop
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-           
+
             services.AddDbContext<AppDBContent>(options => options.UseSqlServer(_confSting.GetConnectionString("DefaultConnection")));
-            services.AddTransient<IAllCars, MockCars>();
-            services.AddTransient<ICarsCategory, MockCategory>();
+            services.AddTransient<IAllCars, CarRepository>();
+            services.AddTransient<ICarsCategory, CategoryRepository>();
 
             services.AddMvc(options => options.EnableEndpointRouting = false);
         }
