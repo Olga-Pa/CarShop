@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Shop.Data;
 using Shop.Data.interfaces;
 using Shop.Data.mocks;
+using Shop.Data.Models;
 using Shop.Data.Repository;
 
 namespace Shop
@@ -33,7 +34,13 @@ namespace Shop
             services.AddDbContext<AppDBContent>(options => options.UseSqlServer(_confSting.GetConnectionString("DefaultConnection")));
             services.AddTransient<IAllCars, CarRepository>();
             services.AddTransient<ICarsCategory, CategoryRepository>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped(sp => ShopCart.GetCart(sp));
+
             services.AddMvc(options => options.EnableEndpointRouting = false);
+
+            services.AddMemoryCache();
+            services.AddSession();
 
         }
 
@@ -43,6 +50,7 @@ namespace Shop
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();
+            app.UseSession();
             app.UseMvcWithDefaultRoute();
 
             using (var scope = app.ApplicationServices.CreateScope())
