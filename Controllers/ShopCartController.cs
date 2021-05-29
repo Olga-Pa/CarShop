@@ -22,7 +22,7 @@ namespace Shop.Controllers
         }
 
         public ViewResult Index()
-        {  
+        {
             var items = _shopCart.getShopItems();
             _shopCart.listShopItems = items;
 
@@ -47,3 +47,4 @@ namespace Shop.Controllers
 
     }
 }
+

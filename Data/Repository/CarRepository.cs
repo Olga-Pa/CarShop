@@ -22,8 +22,6 @@ namespace Shop.Data.Repository
 
         public IEnumerable<Car> getFavCars => appDBContent.Car.Where(p => p.isFavourite).Include(c => c.Category);
 
-        IEnumerable<Car> IAllCars.getFavCars { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
         public Car getObjectCar(int carId) => appDBContent.Car.FirstOrDefault(p => p.id == carId);
     }
 }

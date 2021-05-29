@@ -1,4 +1,5 @@
 ﻿using Shop.Data.Models;
+using Shop.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace Shop.Data.interfaces
     {
 
         IEnumerable<Car> Cars { get; }
-        IEnumerable<Car> getFavCars { get;  set; }
+        IEnumerable<Car> getFavCars { get; }
         Car getObjectCar(int carId);
 
     }
