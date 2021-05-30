@@ -25,31 +25,31 @@ namespace Shop.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public IActionResult Checkout(Order order)
-        //{
+        [HttpPost]
+        public IActionResult Checkout(Order order)
+        {
 
-        //    shopCart.listShopItems = shopCart.getShopItems();
+            shopCart.listShopItems = shopCart.getShopItems();
 
-        //    if (shopCart.listShopItems.Count == 0)
-        //    {
-        //        ModelState.AddModelError("", "You should add yor oreder!");
-        //    }
+            if (shopCart.listShopItems.Count == 0)
+            {
+                ModelState.AddModelError("", "You should add yor oreder!");
+            }
 
-        //    if (ModelState.IsValid)
-        //    {
-        //        allOrders.createOrder(order);
-        //        return RedirectToAction("Complete");
-        //    }
+            if (ModelState.IsValid)
+            {
+                allOrders.createOrder(order);
+                return RedirectToAction("Complete");
+            }
 
-        //    return View(order);
-        //}
+            return View(order);
+        }
 
-        //public IActionResult Complete()
-        //{
-        //    ViewBag.Message = "Processed";
-        //    return View();
-        //}
+        public IActionResult Complete()
+        {
+            ViewBag.Message = "Processed";
+            return View();
+        }
 
-   }
+    }
 }

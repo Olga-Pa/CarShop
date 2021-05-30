@@ -15,7 +15,7 @@ namespace Shop.Data.Models
 
         [Display(Name = "input ID")]
         [StringLength(25)]
-        [Required(ErrorMessage = "Дminimum 5 signs")]
+        [Required(ErrorMessage = "minimum 5 signs")]
         public string name { get; set; }
 
         [Display(Name = "Name")]
