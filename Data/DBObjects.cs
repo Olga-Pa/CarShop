@@ -28,7 +28,7 @@ namespace Shop.Data
                         price = 45000,
                         isFavourite = true,
                         available = true,
-                        Category = Categories["all-electric"]
+                        Category = Categories["electric"]
                     },
                     new Car
                     {
@@ -39,7 +39,7 @@ namespace Shop.Data
                         price = 11000,
                         isFavourite = false,
                         available = true,
-                        Category = Categories["gas"]
+                        Category = Categories["fuel"]
                     },
                     new Car
                     {
@@ -50,7 +50,7 @@ namespace Shop.Data
                         price = 65000,
                         isFavourite = true,
                         available = true,
-                        Category = Categories["gas"]
+                        Category = Categories["fuel"]
                     },
                     new Car
                     {
@@ -61,7 +61,7 @@ namespace Shop.Data
                         price = 40000,
                         isFavourite = false,
                         available = false,
-                        Category = Categories["gas"]
+                        Category = Categories["fuel"]
                     },
                     new Car
                     {
@@ -72,7 +72,7 @@ namespace Shop.Data
                         price = 14000,
                         isFavourite = true,
                         available = true,
-                        Category = Categories["all-electric"]
+                        Category = Categories["electric"]
                     }
                 );
             }
@@ -89,8 +89,8 @@ namespace Shop.Data
                 if (category == null)
                 {
                     var list = new Category[] {
-                        new Category { categoryName = "Электромобили", desc = "Современный вид транспорта" },
-                        new Category { categoryName = "Классические автомобили", desc = "Машины с двигателем внутреннего згорания" }
+                        new Category { categoryName = "electric", desc = "electric" },
+                        new Category { categoryName = "fuel", desc = "fuel" }
                     };
 
                     category = new Dictionary<string, Category>();

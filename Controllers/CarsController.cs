@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Shop.Data.interfaces;
+using Shop.Data.Models;
 using Shop.ViewModels;
 //using Shop.ViewModels;
 using System;
@@ -22,24 +23,45 @@ namespace Shop.Controllers
         }
 
 
-        public ViewResult List()
-        {
-            ViewBag.Title = "Page with cars";
-            CarsListViewModel obj = new CarsListViewModel();
-            obj.allCars = _allCars.Cars;
-            obj.currCategory = "Автомобили";
-            return View(obj);
-            //var cars = _allCars.Cars;
-            //return View(cars);
-            //ViewBag.Title = "Страница с автомобилями";
-            //CarsListViewModel obj = new CarsListViewModel();
-            //obj.allCars = _allCars.Cars;
-            //obj.currCategory = "Автомобили";
+        [Route("Cars/List")]
+        [Route("Cars/List/{category}")]
 
-            //return View(obj);
+        public ViewResult List(string category)
+        {
+            string _category = category;
+            IEnumerable<Car> cars = null;
+            string currCategory = "";
+            if (string.IsNullOrEmpty(category))
+            {
+                cars = _allCars.Cars.OrderBy(i => i.id);
+            }
+            else
+            {
+                if (string.Equals("electric", category, StringComparison.OrdinalIgnoreCase))
+                {
+                    cars = _allCars.Cars.Where(i => i.Category.categoryName.Equals("electric")).OrderBy(i => i.id);
+                    currCategory = "electric";
+                }
+                else if (string.Equals("fuel", category, StringComparison.OrdinalIgnoreCase))
+                {
+                    cars = _allCars.Cars.Where(i => i.Category.categoryName.Equals("fuel")).OrderBy(i => i.id);
+                    currCategory = "fuel";
+                }
+            }
+
+            var carObj = new CarsListViewModel
+            {
+                allCars = cars,
+                currCategory = currCategory
+            };
+
+            ViewBag.Title = "Car page";
+
+
+            return View(carObj);
         }
 
 
     }
-
 }
+
