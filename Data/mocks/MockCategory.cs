@@ -14,8 +14,8 @@ namespace Shop.Data.mocks
             get
             {
                 return new List<Category> {
-                    new Category { categoryName = "Электромобили", desc = "Современный вид транспорта" },
-                    new Category { categoryName = "Классические автомобили", desc = "Машины с двигателем внутреннего згорания" }
+                    new Category { categoryName = "electric", desc = "electric" },
+                    new Category { categoryName = "fuel", desc = "fuel" }
                 };
             }
         }
