@@ -47,7 +47,7 @@ namespace Shop.Controllers
 
         public IActionResult Complete()
         {
-            ViewBag.Message = "Processed";
+            ViewBag.Message = "Complete!!!!";
             return View();
         }
 
