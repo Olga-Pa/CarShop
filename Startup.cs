@@ -53,11 +53,7 @@ namespace Shop
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseSession();
-            //app.UseDefaultFiles(new DefaultFilesOptions
-            //{
-            //    DefaultFileNames = new List<string> { "index.html" }
-            //});
-            //app.UseStaticFiles();
+       
 
             //app.UseMvcWithDefaultRoute();
             app.UseMvc(routes => {
