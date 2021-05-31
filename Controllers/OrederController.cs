@@ -33,7 +33,7 @@ namespace Shop.Controllers
 
             if (shopCart.listShopItems.Count == 0)
             {
-                ModelState.AddModelError("", "You should add yor oreder!");
+                ModelState.AddModelError("", "You should add a car!");
             }
 
             if (ModelState.IsValid)

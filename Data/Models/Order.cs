@@ -13,22 +13,22 @@ namespace Shop.Data.Models
         [BindNever]
         public int id { get; set; }
 
-        [Display(Name = "input ID")]
+        [Display(Name = "First Name")]
         [StringLength(25)]
         [Required(ErrorMessage = "minimum 5 signs")]
         public string name { get; set; }
 
-        [Display(Name = "Name")]
+        [Display(Name = "Last Name")]
         [StringLength(25)]
         [Required(ErrorMessage = "minimum 5 signs")]
         public string surname { get; set; }
 
-        [Display(Name = "Last Name")]
+        [Display(Name = "Address")]
         [StringLength(35)]
         [Required(ErrorMessage = "minimum 5 signs")]
         public string adress { get; set; }
 
-        [Display(Name = "phone number")]
+        [Display(Name = "Phone number")]
         [StringLength(20)]
         [DataType(DataType.PhoneNumber)]
         [Required(ErrorMessage = "minimum 20 digits ")]

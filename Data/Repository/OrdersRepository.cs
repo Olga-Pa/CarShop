@@ -36,7 +36,7 @@ namespace Shop.Data.Repository
                 };
                 appDBContent.OrderDetail.Add(orderDetail);
             }
-            appDBContent.SaveChanges();
+            //appDBContent.SaveChanges();
         }
     }
 }
