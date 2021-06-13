@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -49,8 +49,11 @@ namespace Shop
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
             {
+            //отобрвжвть страницу с ощибками 
             app.UseDeveloperExceptionPage();
+            // отображать коды страниц (200 или 404)
             app.UseStatusCodePages();
+            // использование статическиз файлов
             app.UseStaticFiles();
             app.UseSession();
        

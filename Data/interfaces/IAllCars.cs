@@ -1,10 +1,18 @@
-﻿
+﻿using Shop.Data.Models;
+using Shop.Data.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-var animal = {
-    name: "Fido",
-    species: "Dog",
-    age: 5,
-    speak: function() {
-    console.log('Woof!');
-}
+namespace Shop.Data.interfaces
+{
+    public interface IAllCars
+    {
+
+        IEnumerable<Car> Cars { get; }
+        IEnumerable<Car> getFavCars { get; }
+        Car getObjectCar(int carId);
+
+    }
 }
