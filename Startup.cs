@@ -32,7 +32,7 @@ namespace Shop
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AppDBContent>(options => options.UseSqlServer(_confSting.GetConnectionString("DefaultConnection")));
-            services.AddTransient<IAllCars, CarRepository>();
+            //соединфем интерфейс и класс который реализует этот интерфейс
             services.AddTransient<ICarsCategory, CategoryRepository>();
             services.AddTransient<IAllOrders, OrdersRepository>();
 
